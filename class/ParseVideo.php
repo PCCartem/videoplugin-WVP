@@ -43,7 +43,7 @@ class ParseVideo {
 
         //youtube player
         if($this->video['source'] == SRC_YOUTUBE) {
-            return $varScript.'<video playsinline
+            return $varScript.'<video playsinline webkit-playsinline
                         id="video-js-' . $this->video['id'] . '"
                         class="video-js vjs-fluid vjs-default-skin"
                         controls
@@ -51,7 +51,7 @@ class ParseVideo {
                         ' . ($autoplay?"autoplay ":" ") . '
                         width="' . $this->width . '" 
                         height="' . $this->height . '"
-                        data-setup=\'{"inactivityTimeout":0,"fluid": true, "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "' . $this->video['video_url'] . '"}] }\'>
+                        data-setup=\'{/*"inactivityTimeout":0*/,"fluid": true, "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "' . $this->video['video_url'] . '"}] }\'>
                      </video>';
         }
         //vimeo player
@@ -67,7 +67,7 @@ class ParseVideo {
 					)
 				)
 			);
-            return $varScript.'<video playsinline
+            return $varScript.'<video playsinline webkit-playsinline
                         id="video-js-' . $this->video['id'] . '"
                         class="video-js vjs-fluid vjs-default-skin"
                         controls
@@ -75,13 +75,13 @@ class ParseVideo {
                         ' . ($autoplay?"autoplay ":" ") . '
                         width="' . $this->width . '"
                         height="' . $this->height . '"
-							data-setup=\'{"inactivityTimeout":0, "fluid": true, "techOrder": ["vimeo"], "sources": [{ "type": "video/vimeo", "src": "' . $this->video['video_url'] . '"}] }\'>
+//							data-setup=\'{"/*inactivityTimeout":0, */"fluid": true, "techOrder": ["vimeo"], "sources": [{ "type": "video/vimeo", "src": "' . $this->video['video_url'] . '"}] }\'>
                     </video>';
         }
         //mp4 player
         else {
-            return $varScript.'<video playsinline id="video-js-' . $this->video['id'] . '" class="video-js vjs-fluid vjs-default-skin" ' . ($autoplay?"autoplay ":" ") . ($loop?"loop ":" ") . '  controls preload="auto" controls="true" width="' . $this->width . '" height="' . $this->height . '"
-                        data-setup=\'{"inactivityTimeout":0}\'>
+            return $varScript.'<video playsinline webkit-playsinline id="video-js-' . $this->video['id'] . '" class="video-js vjs-fluid vjs-default-skin" ' . ($autoplay?"autoplay ":" ") . ($loop?"loop ":" ") . '  controls preload="auto" controls="true" width="' . $this->width . '" height="' . $this->height . '"
+                        data-setup=\'{/*"inactivityTimeout":0*/}\'>
                         <source src="' . $this->video['video_url'] . '" type=\'video/mp4\'>
                     </video>';
         }
